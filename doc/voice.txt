@@ -1,0 +1,75 @@
+= Addenum to TETRAPOL PAS 0001-7; Codec - The missing parts
+
+There are key points missing in original specification required to create
+fully functiona codec. This file tryes to fill those gaps. All informations
+have been obtained hrough reverse ingeneering and should be
+handled with care, they might be incomplete or even worse completelywrong.
+
+== Bit arrangmenet in VOICE frame
+
+Data are stored as little endian with LSB stored first in the frame bits.
+
+=== LAR coefficients
+
+LAR values are stored as unsigned int (it should be index of coefficient).
+6 b out of 37 is stored in protected area.
+
+LAR   bit numbers
+idx   MSB ... LSB
+
+1:     1, 0,  23, 22, 21
+2:     2, 27, 26, 25, 24
+3:     3, 30, 29, 28
+4:     4, 31, 33, 32
+5:     5, 36, 35, 34
+6:    39, 38, 37
+7:    42, 41, 40
+8:    45, 44, 43
+9:    47, 46, 48
+10:   51, 50, 49
+
+TODO: add conversion from LAR index to LAR coefficient
+
+=== Subframes
+
+Data are organized in 3 blocks, each representing a subframe.
+
+Decimation idx: 00 - minimal decimation (max. number of pulses),
+    11 - maximal decimation (1 pulse)
+
+LAR lag: value -1 (all bits set to 1) have special meaning, it indicate zero
+    gain. When all gain bits are set to zero the gain is small but nonzero.
+
+==== Subframe 1
+
+LTP
+lag: 6, 55, 54, 53, 52, 58, 57, 56
+gain: 7, 60, 59
+
+Stochastic parameters
+gain: 8, 63, 62, 61, 64
+decimation idx: 10, 9
+sign+phase: 71, 70, 69, 68, 67, 66, 65, 74, 73, 72
+
+==== Subframe 2
+
+LTP
+lag: 11, 79, 78, 77, 76, 75, 81, 80
+gain: 12, 83, 82
+
+Stochastic parameters
+gain: 13, 87, 86, 85, 84
+decimation idx: 15, 14
+sign+phase: 95, 94, 93, 92, 91, 90, 89, 88, 96
+
+==== Subframe 3
+
+LTP
+lag: 16, 103, 102, 101, 100, 99, 98, 97
+gain: 17, 105, 104
+
+Stochastic parameters
+gain: 18, 109, 108, 107, 106
+decimation idx: 20, 19
+sign+phase: 111, 110, 119, 118, 117, 116, 115, 114, 113, 112
+
