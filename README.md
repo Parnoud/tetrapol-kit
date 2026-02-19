@@ -15,18 +15,14 @@ With this tools You should be able:
 ```bash
 sudo apt install libglib2.0-dev libjson-c-dev libcmocka-dev cmake libusb-1.0-0-dev
 ```
-  rtl-sdr
-https://osmocom.org/projects/rtl-sdr/wiki/Rtl-sdr
-  OsmoSDR
-https://osmocom.org/projects/gr-osmosdr/wiki/GrOsmoSDR 
+- rtl-sdr : https://osmocom.org/projects/rtl-sdr/wiki/Rtl-sdr
+- OsmoSDR : https://osmocom.org/projects/gr-osmosdr/wiki/GrOsmoSDR 
 
 ### Know issues
 
-osmocom source in gnu radio :
-Install or compile rtl-sdr before OsmoSDR
+osmocom source in gnu radio : Install or compile rtl-sdr before OsmoSDR
 
-modprob :
-vim /etc/modprobe.d/librtlsdr.conf 
+modprob : `vim /etc/modprobe.d/librtlsdr.conf`
 ```bash
 blacklist dvb_usb_rtl28xxu
 blacklist rtl2832
