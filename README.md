@@ -7,10 +7,8 @@ TETRAPOL radio networks. The project is under heavy (but slow) development,
 there is no stable release yet.
 
 With this tools You should be able:
-  - find and identify base stations
   - receive and demodulate TETRAPOL transmissions
   - analyse traffic data
-  - send crafted traffic
 
 ## Dependecie
   Install libraries and development files for:
