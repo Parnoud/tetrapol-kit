@@ -37,6 +37,7 @@ add_library (tetrapol
     tsdu.c
     tsdu_json.c
     tsdu_print.c
+    rpcelp.c
     tetrapol/addr.h
     tetrapol/bch.h
     tetrapol/bit_utils.h
@@ -62,6 +63,7 @@ add_library (tetrapol
     tetrapol/tpdu.h
     tetrapol/tsdu_json.h
     tetrapol/tsdu_print.h
+    tetrapol/rpcelp.h
 )
 target_link_libraries (tetrapol ${GLIB2_LIBRARIES})
 include_directories(${GLIB2_INCLUDE_DIRS})

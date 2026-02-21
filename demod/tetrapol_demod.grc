@@ -131,7 +131,7 @@ blocks:
     gui_hint: 0,0,1,4
     label: Frequency
     type: real
-    value: '391855000'
+    value: '0'
   states:
     bus_sink: false
     bus_source: false
@@ -215,7 +215,7 @@ blocks:
     comment: ''
     function_args: ''
     function_name: level
-    poll_rate: '500'
+    poll_rate: '2'
     value: '0'
   states:
     bus_sink: false
@@ -326,7 +326,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    decim: '16000'
+    decim: '32000'
     maxoutbuf: '0'
     minoutbuf: '0'
     type: float
@@ -929,7 +929,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [680, 392.0]
+    coordinate: [664, 352.0]
     rotation: 0
     state: enabled
 - name: qtgui_waterfall_sink_x_0

@@ -78,7 +78,7 @@ class tetrapol_demod(gr.top_block, Qt.QWidget):
         ##################################################
         self.samp_rate = samp_rate = 2000000
         self.var_signal_prob = var_signal_prob = 0
-        self.my_freq = my_freq = 391855000
+        self.my_freq = my_freq = 0
         self.first_decim = first_decim = int(samp_rate/bit_rate/2)
         self.xlate_offset_fine1 = xlate_offset_fine1 = 0
         self.xlate_offset1 = xlate_offset1 = 0
@@ -136,7 +136,7 @@ class tetrapol_demod(gr.top_block, Qt.QWidget):
                 self.set_var_signal_prob(val)
             except AttributeError:
               pass
-            time.sleep(1.0 / (500))
+            time.sleep(1.0 / (2))
         _var_signal_prob_thread = threading.Thread(target=_var_signal_prob_probe)
         _var_signal_prob_thread.daemon = True
         _var_signal_prob_thread.start()
@@ -306,7 +306,7 @@ class tetrapol_demod(gr.top_block, Qt.QWidget):
             omega_relative_limit=0.005,
             freq_error=0.0,
             verbose=False,log=False)
-        self.blocks_integrate_xx_0 = blocks.integrate_ff(16000, 1)
+        self.blocks_integrate_xx_0 = blocks.integrate_ff(32000, 1)
         self.analog_quadrature_demod_cf_0 = analog.quadrature_demod_cf((samp_rate/first_decim/(2*math.pi*afc_decimation)))
 
 
